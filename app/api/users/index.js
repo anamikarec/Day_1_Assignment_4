@@ -49,7 +49,7 @@ function getAllUsers(page=1){
 }
 
 function getUsers(index){
-    if(index>=0 && index.users.length){
+    if(index>=0 && index<users.length){
         return users[index];
     }
     else
@@ -60,8 +60,16 @@ function addUser(name){
     users.push({id:users.length+1, name:name});
 }
 
+function getUserById(id=1){
+    for(let val in users){
+        if(users[val].id === id)
+        return users[val];
+    }
+    
+}
 module.exports ={
     getAllUsers,
     getUsers,
-    addUser
+    addUser,
+    getUserById
 }
